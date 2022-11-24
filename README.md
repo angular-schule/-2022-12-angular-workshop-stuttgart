@@ -61,7 +61,7 @@ npm install -g @angular/cli
 
 ```
 node -v
-> Erwartet: 14.20.x, 16.13.x and 18.10.x oder höher
+> Erwartet: 14.20.x, 16.13.x, 18.10.x oder höher aber nicht 19.x!
 
 npm -v
 > Erwartet: 6.x oder höher
