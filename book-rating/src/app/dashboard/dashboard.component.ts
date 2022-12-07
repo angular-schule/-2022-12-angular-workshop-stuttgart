@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'br-dashboard',
@@ -7,28 +8,24 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  books: Book[] = [{
+    isbn: '000',
+    title: 'Anguar',
+    description: 'Tolles Buch',
+    rating: 5
+  },{
+    isbn: '111',
+    title: 'AnguarJS',
+    description: 'Altes Buch',
+    rating: 3
+  }, {
+    isbn: '222',
+    title: 'jQuery',
+    description: 'Veraltetes Buch',
+    rating: 1
+  }];
 
 
-}
 
 
-
-
-class Book {
-  title: string = '';
-  isbn: string = '';
-
-  constructor(title: string, isbn: string) {
-
-    if (title != 'Angular') throw 'Fehler';
-
-    this.title = title;
-    this.isbn = isbn;
-  }
-}
-
-
-interface Book2 {
-  title: string;
-  isbn: string;
 }
