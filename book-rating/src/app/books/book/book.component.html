@@ -1,26 +1,32 @@
-
 <nx-card *ngIf="book" class="nx-margin-top-s">
-  <nx-card-header>
-      <h3 nxHeadline="subsection-small" class="nx-margin-bottom-2m">
-        {{ book.title }}
-      </h3>
 
-      <img class="img-thumbnail float-end"
-      src="//api.angular.schule/avatar/{{ book.rating }}">
+  <img class="thumbnail" src="//api.angular.schule/avatar/{{ book.rating }}">
+
+  <nx-card-header>
+    <h3 nxHeadline="subsection-small">
+      {{ book.title }}
+    </h3>
   </nx-card-header>
-  <p nxHeadline="subsection-xsmall" class="nx-margin-bottom-m">{{ book.rating }}</p>
-  <p nxCopytext="normal">
+
+  <p nxCopytext="small" class="nx-margin-top-xs">
+    {{ book.isbn }}
+  </p>
+
+  <p nxCopytext class="nx-margin-top-s">
     {{ book.description }}
   </p>
 
-    <!-- 😱 ACHTUNG SCHLECHTE PRAXIS 😳 -->
-    <!--
+  <p nxHeadline="subsection-small" class="nx-margin-top-s nx-margin-bottom-xs">{{ book.rating }}</p>
+
+  <!-- 😱 ACHTUNG SCHLECHTE PRAXIS 😳 -->
+  <!--
       1. Verstößt gegen Sepertion of Concerns
       2. Logik im HTML
       3. Buch wird mutiert
     -->
-    <button  nxButton="secondary" class="nx-margin-3xs" type="button" (click)="book.rating = book.rating - 1">-1</button>
-    <button nxButton="primary"  class="nx-margin-3xs" type="button" (click)="book.rating = book.rating + 1">+1</button>
+  <button nxIconButton="primary small" class="nx-margin-3xs" type="button"
+    (click)="book.rating = book.rating + 1">+1</button>
+  <button nxIconButton="secondary small" class="nx-margin-3xs" type="button"
+    (click)="book.rating = book.rating - 1">-1</button>
+
 </nx-card>
-
-
