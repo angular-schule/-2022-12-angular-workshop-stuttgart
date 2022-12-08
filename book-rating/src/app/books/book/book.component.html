@@ -1,19 +1,23 @@
-<!-- book.component.html -->
-<div class="card mb-4" *ngIf="book">
-  <div class="card-body bg-light">
-      <img class="img-thumbnail float-end"
-        src="//api.angular.schule/avatar/{{ book.rating }}">
-    <div class="card-title">
-      <h2>
+<nx-card *ngIf="book" class="nx-margin-top-s">
+  <nx-card-header>
+      <h3 nxHeadline="subsection-small" class="nx-margin-bottom-2m">
         {{ book.title }}
-        {{ '⭐️'.repeat(book.rating) }}
-      </h2>
-    </div>
-    <p>{{ book.description }}</p>
+      </h3>
 
-    <button class="btn btn-primary me-2" (click)="doRateDown()">-1</button>
-    <button class="btn btn-primary" (click)="doRateUp()">+1</button>
+      <img class="img-thumbnail float-end"
+      src="//api.angular.schule/avatar/{{ book.rating }}">
+  </nx-card-header>
+  <p nxHeadline="subsection-xsmall" class="nx-margin-bottom-m">{{ book.rating }}</p>
+  <p nxCopytext="normal">
+    {{ book.description }}
+  </p>
 
-    {{ log() }}
-  </div>
-</div>
+    <button  nxButton="secondary" class="nx-margin-3xs" type="button" (click)="doRateDown()">-1</button>
+    <button nxButton="primary"  class="nx-margin-3xs" type="button" (click)="doRateUp()">+1</button>
+
+    
+</nx-card>
+
+{{ log() }}
+
+

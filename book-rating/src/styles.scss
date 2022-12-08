@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primary: #C3002F;
+// $primary: #C3002F;
+// @import '@angular-schule/workshop-styles/index';
 
-@import '@angular-schule/workshop-styles/index';
+
+body {
+  // background: #0f2a3d;
+}
+
+.container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
