@@ -11,4 +11,6 @@ export class BookComponent {
   @Input()
   book?: Book;
 
+  // @Output()
+
 }
