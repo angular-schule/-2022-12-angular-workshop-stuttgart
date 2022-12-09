@@ -11,13 +11,7 @@
     </div>
     <p>{{ book.description }}</p>
 
-    <!-- 😱 ACHTUNG SCHLECHTE PRAXIS 😳 -->
-    <!--
-      1. Verstößt gegen Sepertion of Concerns
-      2. Logik im HTML
-      3. Buch wird mutiert
-    -->
-    <button class="btn btn-primary me-2" (click)="book.rating = book.rating - 1">-1</button>
-    <button class="btn btn-primary" (click)="book.rating = book.rating + 1">+1</button>
+    <button class="btn btn-primary me-2" (click)="doRateDown()">-1</button>
+    <button class="btn btn-primary" (click)="doRateUp()">+1</button>
   </div>
 </div>

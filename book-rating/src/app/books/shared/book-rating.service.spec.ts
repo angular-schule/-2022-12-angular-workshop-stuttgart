@@ -12,7 +12,7 @@ describe('BookRatingService', () => {
       title: 'Test',
       description: 'Test',
       rating: 3
-    }
+    };
   });
 
   // JIRA-1234
