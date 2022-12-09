@@ -25,4 +25,8 @@ export class BookComponent {
   doRateDown(): void {
     this.rateDown.emit(this.book);
   }
+
+  log() {
+    console.log('Change Detection!', +new Date())
+  }
 }
