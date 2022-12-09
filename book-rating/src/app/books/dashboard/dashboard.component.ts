@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 
@@ -11,12 +12,12 @@ export class DashboardComponent {
 
   books: Book[] = [{
     isbn: '000',
-    title: 'Anguar',
+    title: 'Angular',
     description: 'Tolles Buch',
     rating: 5
-  },{
+  }, {
     isbn: '111',
-    title: 'AnguarJS',
+    title: 'AngularJS',
     description: 'Altes Buch',
     rating: 3
   }, {

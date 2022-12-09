@@ -1,17 +1,7 @@
-<!-- <pre>{{ books | json }}</pre> -->
-
-
-
-
 <div nxLayout="grid">
   <div nxRow>
-    <div nxCol="12" *ngFor="let b of books">
-
-      <br-book
-
-        [book]="b"
-      ></br-book>
-
+    <div nxCol="12,12,12,6" class="nx-margin-top-2m" *ngFor="let book of books">
+      <br-book [book]="book"></br-book>
     </div>
   </div>
 </div>
