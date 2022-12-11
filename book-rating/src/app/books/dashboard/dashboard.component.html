@@ -1,4 +1,8 @@
-<div nxLayout="grid nopadding">
+<br-create-book
+  (create)="addBook($event)"
+></br-create-book>
+
+<div nxLayout="grid">
   <div nxRow>
     <div nxCol="12,12,12,6" class="nx-margin-top-2m" *ngFor="let book of books">
       <br-book

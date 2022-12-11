@@ -1,0 +1,38 @@
+<form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="nx-margin-top-s">
+  <div nxLayout="grid">
+
+    <div nxRow>
+      <div nxCol="12,12,12,6">
+        <nx-formfield nxLabel="ISBN">
+          <input nxInput [formControl]="c.isbn" />
+          <nx-error nxFormfieldError>
+            <strong>Please note:</strong> this field requires at least 3 characters!
+          </nx-error>
+        </nx-formfield>
+      </div>
+
+      <div nxCol="12,12,12,6">
+        <nx-formfield nxLabel="Title">
+          <input nxInput [formControl]="c.title" />
+        </nx-formfield>
+      </div>
+    </div>
+
+    <div nxRow>
+      <div nxCol="12">
+        <nx-formfield nxLabel="Description">
+          <textarea rows="4" nxInput type="text" [formControl]="c.description"></textarea>
+          <nx-error nxFormfieldError>
+            <strong>Please note:</strong> this field is required!
+          </nx-error>
+        </nx-formfield>
+      </div>
+    </div>
+
+    <div nxRow>
+      <div nxCol="12,12,12,6">
+        <button [disabled]="bookForm.invalid" nxButton type="submit">Create</button>
+      </div>
+    </div>
+  </div>
+</form>
