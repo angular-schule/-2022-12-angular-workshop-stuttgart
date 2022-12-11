@@ -3,22 +3,40 @@
   <img class="thumbnail" src="//api.angular.schule/avatar/{{ book.rating }}">
 
   <nx-card-header>
-    <h3 nxHeadline="subsection-small">
+    <h2 nxHeadline="subsection-large" class="nx-margin-bottom-xs">
       {{ book.title }}
-    </h3>
+    </h2>
+
+    <nx-rating [nxValue]="book.rating" [nxDisabled]="true"> </nx-rating>
+
   </nx-card-header>
 
+
   <p nxCopytext="small" class="nx-margin-top-xs">
-    {{ book.isbn }}
+    ISBN: {{ book.isbn }}
   </p>
 
   <p nxCopytext class="nx-margin-top-s">
     {{ book.description }}
   </p>
 
-  <p nxHeadline="subsection-small" class="nx-margin-top-s nx-margin-bottom-xs">{{ book.rating }}</p>
 
-  <button nxIconButton="secondary small" class="nx-margin-3xs" type="button" (click)="doRateDown()">-1</button>
-  <button nxIconButton="primary small" class="nx-margin-3xs" type="button" (click)="doRateUp()">+1</button>
+  <button nxIconButton="secondary small"
+    aria-label="rate up"
+    class="nx-margin-xs nx-margin-left-0"
+    type="button"
+    (click)="doRateDown()"
+  >
+    <nx-icon name="minus" size="s"></nx-icon>
+  </button>
+
+  <button nxIconButton="primary small"
+    aria-label="rate down"
+    class="nx-margin-2xs nx-margin-left-0"
+    type="button"
+    (click)="doRateUp()"
+  >
+    <nx-icon name="plus" size="s"></nx-icon>
+  </button>
 
 </nx-card>

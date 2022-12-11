@@ -2,7 +2,9 @@
 // @import '@angular-schule/workshop-styles/index';
 
 .container {
-  max-width: 1024px;
+  max-width: 100%;
+  width: var(--grid-max-width);
+
   margin-left: auto;
   margin-right: auto;
 }

@@ -13,12 +13,12 @@ export class DashboardComponent {
   books: Book[] = [{
     isbn: '000',
     title: 'Angular',
-    description: 'Tolles Buch',
+    description: 'Dieses Buch stellt Ihnen die Bausteine von Angular, viele Best Practices und die notwendigen Werkzeuge vor. Beginnen Sie Ihren Einstieg mit einer praxisnahen Einführung.',
     rating: 5
   }, {
     isbn: '111',
     title: 'AngularJS',
-    description: 'Altes Buch',
+    description: 'Dieses Buch führt Sie anhand eines zusammenhängenden Beispielprojekts schrittweise an die Entwicklung mit dem clientseitigen Webframework AngularJS heran.',
     rating: 3
   }, {
     isbn: '222',
