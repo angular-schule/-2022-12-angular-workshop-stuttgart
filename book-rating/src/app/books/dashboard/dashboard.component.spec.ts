@@ -10,14 +10,25 @@ import { DashboardComponent } from './dashboard.component';
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  let bookRatingMock: BookRatingService
 
   beforeEach(async () => {
+
+    bookRatingMock = {
+      rateUp: (book: Book) => book
+    } as BookRatingService
 
     await TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
         // Integration Test
         BookComponent
+      ],
+      providers: [
+        {
+          provide: BookRatingService,
+          useValue: bookRatingMock
+        }
       ]
     })
     .compileComponents();
@@ -29,12 +40,11 @@ describe('DashboardComponent', () => {
 
   it('doRateUp() should forward all calls to BookRatingService', () => {
 
-    const rs = TestBed.inject(BookRatingService);
-    spyOn(rs, 'rateUp').and.callThrough();
+    spyOn(bookRatingMock, 'rateUp').and.callThrough();
 
     const book = { } as Book;
     component.doRateUp(book);
 
-    expect(rs.rateUp).toHaveBeenCalledOnceWith(book);
+    expect(bookRatingMock.rateUp).toHaveBeenCalledOnceWith(book);
   });
 });
