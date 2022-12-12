@@ -7,15 +7,16 @@ import { BookRatingService } from '../shared/book-rating.service';
 import { DashboardComponent } from './dashboard.component';
 
 
-fdescribe('DashboardComponent', () => {
+describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  let bookRatingMock: BookRatingService
 
   beforeEach(async () => {
 
-    const bookRatingMock = {
+    bookRatingMock = {
       rateUp: (book: Book) => book
-    }
+    } as BookRatingService
 
     await TestBed.configureTestingModule({
       declarations: [
@@ -39,12 +40,11 @@ fdescribe('DashboardComponent', () => {
 
   it('doRateUp() should forward all calls to BookRatingService', () => {
 
-    const rs = TestBed.inject(BookRatingService);
-    spyOn(rs, 'rateUp').and.callThrough();
+    spyOn(bookRatingMock, 'rateUp').and.callThrough();
 
     const book = { } as Book;
     component.doRateUp(book);
 
-    expect(rs.rateUp).toHaveBeenCalledOnceWith(book);
+    expect(bookRatingMock.rateUp).toHaveBeenCalledOnceWith(book);
   });
 });
