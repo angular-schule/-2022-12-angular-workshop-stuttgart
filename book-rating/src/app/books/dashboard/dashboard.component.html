@@ -1,10 +1,17 @@
-<!-- <pre>{{ books | json }}</pre> -->
+<div nxLayout="grid">
+  <div nxRow>
+    <div nxCol="12,12,12,6" class="nx-margin-top-2m" *ngFor="let b of books">
 
-<br-book
-  *ngFor="let b of books"
-  [book]="b"
-  (rateUp)="doRateUp($event)"
-  (rateDown)="doRateDown($event)"
-></br-book>
+      <br-book
+        [book]="b"
+        (rateUp)="doRateUp($event)"
+        (rateDown)="doRateDown($event)"
+      ></br-book>
+
+    </div>
+  </div>
+</div>
+
+<hr>
 
 Anzahl der Bücher: {{ books.length }}

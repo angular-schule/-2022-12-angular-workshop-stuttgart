@@ -1,19 +1,27 @@
-<!-- book.component.html -->
-<div class="card mb-4" *ngIf="book">
-  <div class="card-body bg-light">
-      <img class="img-thumbnail float-end"
-        src="//api.angular.schule/avatar/{{ book.rating }}">
-    <div class="card-title">
-      <h2>
-        {{ book.title }}
-        {{ '⭐️'.repeat(book.rating) }}
-      </h2>
-    </div>
-    <p>{{ book.description }}</p>
+<nx-card *ngIf="book">
+  <img class="thumbnail" src="//api.angular.schule/avatar/{{ book.rating }}">
 
-    <button class="btn btn-primary me-2" (click)="doRateDown()">-1</button>
-    <button class="btn btn-primary" (click)="doRateUp()">+1</button>
+  <nx-card-header>
+    <h2 nxHeadline="subsection-large" class="nx-margin-bottom-xs">{{ book.title }}</h2>
+    <nx-rating [nxValue]="book.rating" [nxDisabled]="true"></nx-rating>
+  </nx-card-header>
 
-    {{ log() }}
-  </div>
-</div>
+  <p nxCopytext="small" class="nx-margin-top-xs">ISBN: {{ book.isbn }}</p>
+  <p nxCopytext class="nx-margin-top-s">{{ book.description }}</p>
+
+  <button nxIconButton="secondary small"
+    aria-label="rate up"
+    class="nx-margin-xs nx-margin-left-0"
+    type="button"
+    (click)="doRateDown()">
+    <nx-icon name="minus" size="s"></nx-icon>
+  </button>
+
+  <button nxIconButton="primary small"
+    aria-label="rate down"
+    class="nx-margin-2xs nx-margin-left-0"
+    type="button"
+    (click)="doRateUp()">
+    <nx-icon name="plus" size="s"></nx-icon>
+  </button>
+</nx-card>

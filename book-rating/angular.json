@@ -30,6 +30,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@aposin/ng-aquila/css/normalize.css",
+              "node_modules/@aposin/ng-aquila/css/utilities.css",
+              "src/ndbx.css",
               "src/styles.scss"
             ],
             "scripts": []

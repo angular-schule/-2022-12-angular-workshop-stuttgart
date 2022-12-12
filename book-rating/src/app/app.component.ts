@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   /* istanbul ignore next: trivial statement */
   title = 'Book Rating';
+
+  currentDate = new Date();
 }
