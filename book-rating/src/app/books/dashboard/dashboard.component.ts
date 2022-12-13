@@ -14,17 +14,20 @@ export class DashboardComponent {
     isbn: '000',
     title: 'Anguar',
     description: 'Tolles Buch',
-    rating: 5
+    rating: 5,
+    price: 1
   },{
     isbn: '111',
     title: 'AnguarJS',
     description: 'Altes Buch',
-    rating: 3
+    rating: 3,
+    price: 1
   }, {
     isbn: '222',
     title: 'jQuery',
     description: 'Veraltetes Buch',
-    rating: 1
+    rating: 1,
+    price: 1
   }];
 
   constructor(private br: BookRatingService) {

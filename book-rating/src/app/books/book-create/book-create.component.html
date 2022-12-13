@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="bookForm" (ngSubmit)="submitBook()">
 
   <div nxLayout="grid">
     <div nxRow>
@@ -6,7 +6,7 @@
       <div nxCol="12,12,12,4">
 
         <nx-formfield nxLabel="ISBN">
-           <input nxInput>
+           <input nxInput [formControl]="c.isbn">
            <nx-error nxFormfieldError>
             <strong>Please note:</strong> this field requires at least 3 characters!
           </nx-error>
@@ -17,7 +17,7 @@
       <div nxCol="12,12,12,4">
 
         <nx-formfield nxLabel="Title">
-           <input nxInput>
+           <input nxInput [formControl]="c.title">
            <nx-error nxFormfieldError>
             <strong>Please note:</strong> this field requires at least 3 characters!
           </nx-error>
@@ -34,6 +34,7 @@
           [nxMin]="1"
           [nxMax]="5"
           [leadingZero]="false"
+          [formControl]="c.rating"
         ></nx-number-stepper>
 
       </div>
@@ -44,7 +45,9 @@
       <div nxCol="12">
 
         <nx-formfield nxLabel="Description">
-          <textarea rows="4" nxInput type="text"></textarea>
+          <textarea rows="4" nxInput type="text"
+            [formControl]="c.description"
+          ></textarea>
         </nx-formfield>
 
       </div>
@@ -53,7 +56,9 @@
     <div nxRow>
 
         <div nxCol="12">
-          <button nxButton type="submit">Create</button>
+          <button
+            [disabled]="bookForm.invalid"
+            nxButton type="submit">Create</button>
         </div>
 
       </div>

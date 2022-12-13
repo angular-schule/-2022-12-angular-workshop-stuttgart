@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'br-book-create',
@@ -37,5 +38,19 @@ export class BookCreateComponent {
     description: new FormControl('' , {
       nonNullable: true
     })
-  })
+  });
+
+  c = this.bookForm.controls;
+
+  submitBook(): void {
+
+    const book: Book = {
+      ...this.bookForm.getRawValue(),
+      price: 1
+    }
+
+    // TODO: nach dem Mittag versenden
+
+    this.bookForm.reset();
+  }
 }
