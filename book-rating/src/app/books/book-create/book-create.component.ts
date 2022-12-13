@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'br-book-create',
   templateUrl: './book-create.component.html',
-  styleUrls: ['./book-create.component.scss']
+  styleUrls: ['./book-create.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BookCreateComponent {
 
