@@ -60,6 +60,12 @@ export class BookCreateComponent implements AfterViewInit {
       price: 1
     }
 
+    // TODO
+    // 1. Erstelle eine Event mit dem Namen `create` vom Typ `Book`
+    // 2. Emitiere das neue Buch
+    // 3. Subscribe auf das Event im Dashboard
+    // 4. Füge das Buch dem Buch-Array hinzu, achte auf die Immutability
+
     // weil ErrorStateMatcher auch form.submitted prüft
     // siehe https://allianz.github.io/ng-aquila/documentation/error-handling/overview
     this.formDirective?.resetForm();
