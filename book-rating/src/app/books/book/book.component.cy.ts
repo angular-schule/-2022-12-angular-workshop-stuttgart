@@ -1,8 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
-// /// <reference path="/cypress/support/component.ts" />
+// /// <reference path="../../../../cypress/support/component.d.ts" />
 
 import { BookComponent } from "./book.component";
-
 
 it('mounts', () => {
   cy.mount(BookComponent, {
