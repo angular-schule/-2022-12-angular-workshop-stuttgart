@@ -11,7 +11,8 @@ describe('BookRatingService', () => {
       isbn: '000',
       title: 'Test',
       description: 'Test',
-      rating: 3
+      rating: 3,
+      price: 1
     };
   });
 
