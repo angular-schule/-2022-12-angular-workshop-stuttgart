@@ -6,7 +6,7 @@
       <div nxCol="12,12,12,4">
 
         <nx-formfield nxLabel="ISBN">
-           <input nxInput [formControl]="c.isbn">
+           <input nxInput [formControl]="c.isbn" #id>
            <nx-error nxFormfieldError>
             <strong>Please note:</strong> this field requires at least 3 characters!
           </nx-error>

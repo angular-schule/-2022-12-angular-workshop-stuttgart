@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+
 import { Book } from '../shared/book';
 
 @Component({
@@ -8,7 +9,13 @@ import { Book } from '../shared/book';
   styleUrls: ['./book-create.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BookCreateComponent {
+export class BookCreateComponent implements AfterViewInit {
+
+  @ViewChild(FormGroupDirective)
+  formDirective?: FormGroupDirective;
+
+  @ViewChild('id')
+  isbnElement?: ElementRef;
 
   bookForm = new FormGroup({
 
@@ -42,6 +49,10 @@ export class BookCreateComponent {
 
   c = this.bookForm.controls;
 
+  ngAfterViewInit() {
+    this.isbnElement?.nativeElement.focus();
+  }
+
   submitBook(): void {
 
     const book: Book = {
@@ -49,8 +60,11 @@ export class BookCreateComponent {
       price: 1
     }
 
-    // TODO: nach dem Mittag versenden
+    // weil ErrorStateMatcher auch form.submitted prüft
+    // siehe https://allianz.github.io/ng-aquila/documentation/error-handling/overview
+    this.formDirective?.resetForm();
 
-    this.bookForm.reset();
+    // normalerweise
+    // this.bookForm.reset();
   }
 }
