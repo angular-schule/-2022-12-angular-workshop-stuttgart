@@ -54,4 +54,9 @@ export class DashboardComponent {
       .sort((a, b) => b.rating - a.rating)
   }
 
+  addBook(newBook: Book): void {
+    this.books = [...this.books, newBook]
+      .sort((a, b) => b.rating - a.rating);
+  }
+
 }

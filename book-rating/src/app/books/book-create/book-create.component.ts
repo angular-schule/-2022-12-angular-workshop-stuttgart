@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 import { Book } from '../shared/book';
@@ -49,22 +49,21 @@ export class BookCreateComponent implements AfterViewInit {
 
   c = this.bookForm.controls;
 
+  @Output()
+  create = new EventEmitter<Book>();
+
   ngAfterViewInit() {
     this.isbnElement?.nativeElement.focus();
   }
 
   submitBook(): void {
 
-    const book: Book = {
+    const newBook: Book = {
       ...this.bookForm.getRawValue(),
       price: 1
     }
 
-    // TODO
-    // 1. Erstelle eine Event mit dem Namen `create` vom Typ `Book`
-    // 2. Emitiere das neue Buch
-    // 3. Subscribe auf das Event im Dashboard
-    // 4. Füge das Buch dem Buch-Array hinzu, achte auf die Immutability
+    this.create.emit(newBook);
 
     // weil ErrorStateMatcher auch form.submitted prüft
     // siehe https://allianz.github.io/ng-aquila/documentation/error-handling/overview
