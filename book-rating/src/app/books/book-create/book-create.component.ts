@@ -9,13 +9,7 @@ import { Book } from '../shared/book';
   styleUrls: ['./book-create.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BookCreateComponent implements AfterViewInit {
-
-  @ViewChild(FormGroupDirective)
-  formDirective?: FormGroupDirective;
-
-  @ViewChild('id')
-  isbnElement?: ElementRef;
+export class BookCreateComponent {
 
   bookForm = new FormGroup({
 
@@ -52,11 +46,8 @@ export class BookCreateComponent implements AfterViewInit {
   @Output()
   create = new EventEmitter<Book>();
 
-  ngAfterViewInit() {
-    this.isbnElement?.nativeElement.focus();
-  }
 
-  submitBook(): void {
+  submitBook(ngForm: FormGroupDirective): void {
 
     const newBook: Book = {
       ...this.bookForm.getRawValue(),
@@ -67,7 +58,7 @@ export class BookCreateComponent implements AfterViewInit {
 
     // weil ErrorStateMatcher auch form.submitted prüft
     // siehe https://allianz.github.io/ng-aquila/documentation/error-handling/overview
-    this.formDirective?.resetForm();
+    ngForm.resetForm();
 
     // normalerweise
     // this.bookForm.reset();

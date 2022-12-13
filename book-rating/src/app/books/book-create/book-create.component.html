@@ -1,4 +1,4 @@
-<form [formGroup]="bookForm" (ngSubmit)="submitBook()">
+<form [formGroup]="bookForm" (ngSubmit)="submitBook(ngForm)" #ngForm="ngForm">
 
   <div nxLayout="grid">
     <div nxRow>
