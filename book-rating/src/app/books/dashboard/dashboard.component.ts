@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -10,28 +11,12 @@ import { BookRatingService } from '../shared/book-rating.service';
 })
 export class DashboardComponent {
 
-  books: Book[] = [{
-    isbn: '000',
-    title: 'Anguar',
-    description: 'Tolles Buch',
-    rating: 5,
-    price: 1
-  },{
-    isbn: '111',
-    title: 'AnguarJS',
-    description: 'Altes Buch',
-    rating: 3,
-    price: 1
-  }, {
-    isbn: '222',
-    title: 'jQuery',
-    description: 'Veraltetes Buch',
-    rating: 1,
-    price: 1
-  }];
+  books: Book[] = [];
 
-  constructor(private br: BookRatingService) {
-    // window.setTimeout(() => this.books = [], 3000)
+  constructor(private br: BookRatingService, private bs: BookStoreService) {
+
+    this.bs.getAllBooks()
+      .subscribe(books => this.books = books);
   }
 
   doRateUp(book: Book): void {
