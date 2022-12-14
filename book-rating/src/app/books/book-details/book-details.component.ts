@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap } from 'rxjs';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-book-details',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class BookDetailsComponent {
 
+  book$ = this.route.paramMap.pipe(
+    map(paramMap => String(paramMap.get('isbn'))),
+    mergeMap(isbn => this.bs.getSingleBook(isbn))
+  );
+
+  constructor(private route: ActivatedRoute, private bs: BookStoreService) {}
 }
