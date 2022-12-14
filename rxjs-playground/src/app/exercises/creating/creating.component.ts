@@ -33,12 +33,14 @@ export class CreatingComponent {
     const observable = new Observable<string>((subscriber) => {
 
       subscriber.next('😎');
-      setTimeout(() => subscriber.next('😍'), 1000);
-      setTimeout(() => subscriber.complete(), 2000)
+      const x = setTimeout(() => subscriber.next('😍'), 1000);
+      const y = setTimeout(() => subscriber.complete(), 2000)
       // subscriber.next('😍');
 
       return () => {
         this.log('Cleanup!')
+        clearTimeout(x);
+        clearTimeout(y);
       }
     });
 
