@@ -22,7 +22,30 @@ export class CreatingComponent {
 
     /******************************/
 
-    
+    const obverver = {
+      next: (e: string) => this.log(e),
+      error: (err: any) => this.log('ERROR'),
+      complete: () => this.log('COMPLETE')
+    }
+
+    // const observable = of('😎', '🥹', '🤪', '🤨');
+
+    const observable = new Observable<string>((subscriber) => {
+
+      subscriber.next('😎');
+      setTimeout(() => subscriber.next('😍'), 1000);
+      setTimeout(() => subscriber.complete(), 2000)
+      // subscriber.next('😍');
+
+      return () => {
+        this.log('Cleanup!')
+      }
+    });
+
+    const subscription = observable.subscribe(obverver);
+    setTimeout(() => subscription.unsubscribe(), 500);
+
+
     /******************************/
   }
 
