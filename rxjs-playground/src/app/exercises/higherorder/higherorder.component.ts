@@ -28,6 +28,7 @@ export class HigherorderComponent {
     /**************!!**************/
 
     this.result$ = this.source$.pipe(
+      concatMap(tier => this.es.echo(tier))
     );
 
     /**************!!**************/
