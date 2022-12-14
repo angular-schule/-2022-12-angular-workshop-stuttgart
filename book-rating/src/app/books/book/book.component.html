@@ -24,4 +24,6 @@
     (click)="doRateUp()">
     <nx-icon name="plus" size="s"></nx-icon>
   </button>
+
+  <a nxButton="primary small" [routerLink]="['/books', book.isbn]">Details</a>
 </nx-card>
