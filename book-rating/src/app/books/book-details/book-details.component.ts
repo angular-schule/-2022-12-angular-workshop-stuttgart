@@ -15,13 +15,13 @@ export class BookDetailsComponent {
 
   book$ = this.route.paramMap.pipe(
     map(paramMap => String(paramMap.get('isbn'))),
-    switchMap(isbn => this.bs.getSingleBook(isbn)),
-    catchError((err: HttpErrorResponse) => of({
-      isbn: '0',
-      title: 'FEHLER',
-      description: err.message
-    }))
+    switchMap(isbn => this.bs.getSingleBook(isbn).pipe(
+      catchError((err: HttpErrorResponse) => of({
+        isbn: '0',
+        title: 'FEHLER',
+        description: err.message
+      }))))
   );
 
-  constructor(private route: ActivatedRoute, private bs: BookStoreService) {}
+  constructor(private route: ActivatedRoute, private bs: BookStoreService) { }
 }
